@@ -10,11 +10,22 @@ import pandas as pd;
 
 dados = pd.read_csv("tracking.csv",);
 
-treino_x = dados[['home','how_it_works','contact']];
-treino_y = dados['bought'];
+treino = dados[['home','how_it_works','contact']];
+resultado = dados['bought'];
+
+treino_x = treino[0:75];
+treino_y = resultado[0:75];
 
 rede = MLPClassifier();
 
 #METODO PARA TREINAR O ALGORITMO
-# rede.fit(treino_x, treino_y);
+rede.fit(treino_x, treino_y);
 
+#TESTANDO PREVISOES DO ALGORITMO
+teste_x = treino[75:100];
+teste_y = resultado[75:100];
+
+previsao_y = rede.predict(teste_x);
+print(previsao_y);
+print(accuracy_score(teste_y,previsao_y));
+print(confusion_matrix(teste_y,previsao_y));

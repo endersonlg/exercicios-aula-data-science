@@ -1,8 +1,11 @@
 #BEM VINDO!!!
 
 #ADICIONAR pip install --pre -f https://sklearn-nightly.scdn8.secure.raxcdn.com scikit-learn
+
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score,confusion_matrix
+import pandas as pd;
+dados = pd.re
 
 porco1 = [0, 0, 1];
 porco2 = [0, 1, 1];
